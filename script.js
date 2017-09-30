@@ -43,10 +43,25 @@ for (filePathString in mockInputJSON)
       // If this object/level doesn't have a record of this value, create one
       // and give it a blank object as its contents
       if(thisLevel[filePathPartsArray[i]] == null)
-        thisLevel[filePathPartsArray[i]] = {};
+      {
+        thisLevel[filePathPartsArray[i]] = {
+          "coverage": {
+            "coveredLines": mockInputJSON[filePathString].coveredLines,
+            "totalLines": mockInputJSON[filePathString].totalLines,
+          },
+          "contents": {
+
+          }
+        };
+      }
+      else
+      {
+        thisLevel[filePathPartsArray[i]].coverage.coveredLines += mockInputJSON[filePathString].coveredLines;
+        thisLevel[filePathPartsArray[i]].coverage.totalLines += mockInputJSON[filePathString].totalLines;
+      }
 
       // Then move down into this level and repeat the loop
-      thisLevel = thisLevel[filePathPartsArray[i]];
+      thisLevel = thisLevel[filePathPartsArray[i]].contents;
     }
   }
 }
