@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Test Coverage Challenge</title>
-  <link rel="stylesheet" type='css/text' href="bootstrap.css" />
-  <link rel='stylesheet' type='css/text' href='style.css' />
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel='stylesheet' href='style.css' />
 </head>
 <body>
-  <div id='container'>
-    <!-- Exercise results go here -->
+  <div class='page_container'>
+    <div id='start'>
+      <div class='method_container'>
+        <h2>Copy &amp; Paste</h2>
+        <textarea id='copy-paste-input' placeholder='Paste your JSON data here...'></textarea>
+        <a href='#' class='submit' data-case='direct'>Submit</a>
+      </div><!--
+    --><div class='method_container'>
+        <h2>Upload File</h2>
+        <a id='mock-file-input' href='#'>Choose a JSON file...</a>
+        <input id='file-input' type='file' name='files[]' />
+        <p class='small'>&ast;Files must be .json, .txt or .js</p>
+        <a href='#' class='submit' data-case='file'>Submit</a>
+      </div><!--
+    --><div class='method_container'>
+        <h2>API Endpoint</h2>
+        <input id='api-input' type='text' placeholder="e.g. http://domain.com/api/getjson" />
+        <p class='small'>&ast;Requests are made by GET. Result must be either string or JSON object</p>
+        <a href='#' class='submit' data-case='api'>Submit</a>
+      </div>
+    </div>
+    <div id='result-container'>
+      Result
+    </div>
   </div>
+  <script src='jquery.min.js'></script>
+  <!-- Modernizr to detect File API availability -->
+  <script src='modernizr.js'></script>
   <!-- The script that does all the work -->
   <script src='script.js'></script>
 </body>
