@@ -69,7 +69,7 @@ var app = app ||
         if(filePathPartsArray[i].length > 0)
         {
           // If this object/level doesn't have a record of this value, create one
-          // and give it a blank object as its contents
+          // and give it an empty object as its contents
           if(thisLevel[filePathPartsArray[i]] == null)
           {
             thisLevel[filePathPartsArray[i]] = {
@@ -115,12 +115,52 @@ var app = app ||
       app.displayError(e.message, method);
     }
 
-    // Start rendering json
-    var outputHTML;
+    outputJSON = app.convertInputJSONToTreeStructure(outputJSON);
 
-    // Continue here
+    // Start rendering json
+    var outputHTML = app.reccursiveReadOfObject(outputJSON);
 
     $("#result-container").html(outputHTML);
+  },
+
+  reccursiveReadOfObject: function(outputJSON)
+  {
+    var currentItem;
+    var curentItemCoverageString;
+    var outputHTML = "<ul>";
+
+    for(item in outputJSON)
+    {
+      currentItem = outputJSON[item];
+
+      currentItemCoverageString = currentItem.coverage.coveredLines
+                                + "/"
+                                + currentItem.coverage.totalLines
+                                + " ("
+                                + ((currentItem.coverage.coveredLines / currentItem.coverage.totalLines) * 100).toFixed(2)
+                                + "%)";
+
+      outputHTML += "<li>"
+                    + "<div class='title'>"
+                      + "<span class='name'>"
+                        + item
+                      + "</span>"
+                      + "<span class='coverage'>"
+                        + currentItemCoverageString
+                      + "</span>"
+                    + "</div>";
+
+      if(currentItem.contents)
+      {
+        outputHTML += app.reccursiveReadOfObject(currentItem.contents);
+      }
+
+      outputHTML += "</li>"
+    }
+
+    outputHTML += "</ul>";
+
+    return outputHTML;
   },
 
   startEventListeners: function()

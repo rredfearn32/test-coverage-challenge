@@ -1,38 +1,7 @@
 {
-  "utils": {
-    "coveredLines": 38,
-    "totalLines": 73,
-    "contents":
-    {
-      "nums":
-      {
-        "coveredLines" : 9,
-        "totalLines": 22,
-        "Add.Java":
-        {
-          "coveredLines" : 9,
-          "totalLines": 22
-        }
-      },
-      "Copy.java":
-      {
-        "coveredLines" : 15,
-        "totalLines": 37
-      },
-      "Paste.java":
-      {
-        "coveredLines" : 14,
-        "totalLines": 14
-      }
-    }
-  },
-  "ui": {
-    "coveredLines" : 23,
-    "totalLines": 79,
-    "Window.java":
-    {
-      "coveredLines" : 23,
-      "totalLines": 79
-    }
-  }
+  "/Main.java":           {"coveredLines": 0,  "totalLines": 10},
+  "/utils/Copy.java":     {"coveredLines": 15, "totalLines": 37},
+  "/utils/Paste.java":    {"coveredLines": 14, "totalLines": 14},
+  "/utils/nums/Add.java": {"coveredLines": 9,  "totalLines": 22},
+  "/ui/Window.java":      {"coveredLines": 23, "totalLines": 79}
 }

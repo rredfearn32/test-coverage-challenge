@@ -78,3 +78,49 @@ textarea
 {
   display: none;
 }
+
+#result-container
+{
+  text-align: left;
+}
+
+ul
+{
+  padding: 0;
+  margin: 0;
+}
+
+li
+{
+  list-style: none;
+}
+
+li li
+{
+  margin-left: 5%;
+}
+
+.title
+{
+  border-bottom: 1px solid #909090;
+  margin: 20px 0;
+}
+
+.title:hover
+{
+  background: #2980b9;
+  color: #ffffff;
+}
+
+.name
+{
+  display: inline-block;
+  width: calc(100% - 160px);
+}
+
+.coverage
+{
+  display: inline-block;
+  width: 160px;
+  text-align: right;
+}
