@@ -1,6 +1,6 @@
 # Project Documentation
 
-I fear I may have exceeded the time limit specified in the assignment file. I spent a total of about 10 hours on this project. If you browse my commits on the project, the first commit on that repo illustrates my progress after four hours: I had just figured out the algorithm to convert the provided data into a more data structure.
+I fear I may have exceeded the time limit specified in the assignment file. I spent a total of about 10 hours on this project. If you browse my commits on the project, the first commit on that repo illustrates my progress after four hours: I had just figured out the algorithm to convert the provided data into a more suitable data structure.
 
 I then decided I would spend a while longer implementing some kind of basic UI, along with allowing multiple methods of submitting the JSON data to be processed. This may all have been unnecessary, but hopefully it won't count against me. Most of all, I wanted to make a working MVP.
 
