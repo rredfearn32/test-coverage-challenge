@@ -197,7 +197,7 @@ var app = app ||
       // Ensure JSON item has all required properties
       if(currentItem.coverage !== undefined &&
           currentItem.coverage.coveredLines !== undefined &&
-          currentItem.coverage.totalLines)
+          currentItem.coverage.totalLines !== undefined)
       {
         // Create the coverage stats html
         currentItemCoverageString = currentItem.coverage.coveredLines
