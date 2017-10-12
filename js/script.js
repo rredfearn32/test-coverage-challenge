@@ -17,13 +17,13 @@ var app = app ||
       {
         var retrievedJSON;
         // Data must be a string at this stage, so convert an object if that is returned
-        if(typeof retrievedJSON === "object")
+        if(typeof data === "object")
         {
           retrievedJSON = JSON.stringify(data.result);
         }
-        else if(typeof retrievedJSON === "string")
+        else
         {
-          retrievedJSON = JSON.stringify(data);
+          retrievedJSON = data;
         }
 
         // Do the callback with the retried data
