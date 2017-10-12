@@ -13,12 +13,18 @@ var app = app ||
   getFromURL: function(inputJSON, callback)
   {
     $.get(inputJSON, function(data){
-      if(data.result)
+      if(data)
       {
-        var retrievedJSON = data.result;
+        var retrievedJSON;
         // Data must be a string at this stage, so convert an object if that is returned
         if(typeof retrievedJSON === "object")
+        {
           retrievedJSON = JSON.stringify(data.result);
+        }
+        else if(typeof retrievedJSON === "string")
+        {
+          retrievedJSON = JSON.stringify(data);
+        }
 
         // Do the callback with the retried data
         callback(retrievedJSON);
@@ -189,7 +195,9 @@ var app = app ||
       currentItem = outputJSON[item];
 
       // Ensure JSON item has all required properties
-      if(currentItem.coverage && currentItem.coverage.coveredLines && currentItem.coverage.totalLines)
+      if(currentItem.coverage !== undefined &&
+          currentItem.coverage.coveredLines !== undefined &&
+          currentItem.coverage.totalLines)
       {
         // Create the coverage stats html
         currentItemCoverageString = currentItem.coverage.coveredLines
@@ -224,6 +232,15 @@ var app = app ||
     outputHTML += "</ul>";
 
     return outputHTML;
+  },
+
+  escapeHtml: function(unsafe) {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   },
 
   startEventListeners: function()
